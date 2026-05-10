@@ -20,4 +20,4 @@ Compilatore: Dev-C++ 6.3 o superiore
 # Materiale caricato
 - In src: main.cpp
 - In sql: spesebudget.sql
-- Video come esempio di utilizzo
+- Video come esempio di utilizzo: MySpeseBudget.mp4
