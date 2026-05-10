@@ -1,0 +1,27 @@
+CREATE SCHEMA SpeseBudget
+SET search_path TO spesebudget;
+CREATE TABLE Categorie (
+    id_categoria SERIAL PRIMARY KEY,
+    nome VARCHAR(50) UNIQUE
+);
+SET search_path TO spesebudget;
+CREATE TABLE Spese (
+    id_spesa SERIAL PRIMARY KEY,
+    data DATE NOT NULL,
+    importo DECIMAL(10, 2) NOT NULL CHECK (importo > 0),
+    descrizione VARCHAR(255),
+    id_categoria INTEGER NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES Categorie (id_categoria) ON DELETE CASCADE
+);
+CREATE TABLE Budget (
+    id_budget SERIAL PRIMARY KEY,
+    mese_riferimento CHAR(7) NOT NULL, -- Formato 'YYYY-MM'
+    importo_limite DECIMAL(10, 2) NOT NULL CHECK (importo_limite > 0),
+    id_categoria INTEGER NOT NULL,
+    UNIQUE(mese_riferimento, id_categoria),
+    FOREIGN KEY (id_categoria) REFERENCES Categorie (id_categoria) ON DELETE CASCADE
+);
+INSERT INTO spesebudget.categorie (id_categoria, nome) VALUES 
+(1,'Cibo'), 
+(2,'Trasporti'), 
+(3,'Svago');
