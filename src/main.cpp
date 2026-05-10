@@ -550,7 +550,7 @@ int main() {
             
 
             case 5:
-                cout << "\nUscita... Grazie per aver usato MyPersonalBudget!" << endl;
+                cout << "\nUscita... Grazie per aver usato MySpeseBudget!" << endl;
                 inEsecuzione = false;
                 break;
 
